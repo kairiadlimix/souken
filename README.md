@@ -14,6 +14,12 @@
 ### 1. 依存パッケージのインストール
 
 ```bash
+# macOS/Linuxの場合
+pip3 install -r requirements.txt
+# または
+python3 -m pip install -r requirements.txt
+
+# Windowsの場合
 pip install -r requirements.txt
 ```
 
@@ -23,10 +29,10 @@ pip install -r requirements.txt
 
 ```bash
 # ローカルサーバーを起動（ポート8000）
-python run_local.py
+python3 run_local.py
 
 # または直接uvicornを使用
-uvicorn api.index:app --reload --host 0.0.0.0 --port 8000
+python3 -m uvicorn api.index:app --reload --host 0.0.0.0 --port 8000
 ```
 
 起動後、以下のURLでアクセスできます：
@@ -39,13 +45,13 @@ uvicorn api.index:app --reload --host 0.0.0.0 --port 8000
 
 ```bash
 # テキスト形式で結果を表示
-python -m src.main 図面ファイル.pdf
+python3 -m src.main 図面ファイル.pdf
 
 # JSON形式で結果を出力
-python -m src.main 図面ファイル.pdf --format json
+python3 -m src.main 図面ファイル.pdf --format json
 
 # 結果をファイルに保存
-python -m src.main 図面ファイル.pdf --output result.txt
+python3 -m src.main 図面ファイル.pdf --output result.txt
 ```
 
 #### APIを使用してチェック
@@ -90,7 +96,7 @@ for result in results:
 ## テスト実行
 
 ```bash
-python test_check.py
+python3 test_check.py
 ```
 
 ## チェック項目
