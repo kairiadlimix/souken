@@ -17,6 +17,7 @@ try:
     from fastapi import FastAPI, UploadFile, File, HTTPException
     from fastapi.middleware.cors import CORSMiddleware
     from fastapi.responses import JSONResponse
+    from mangum import Mangum
     import json
     from typing import Optional
 
@@ -207,7 +208,7 @@ async def get_check_items():
 
 
 # Vercel用のハンドラー
-# Vercelは "handler" または "app" という名前を探します
-# FastAPIアプリケーションを直接エクスポート
-handler = app
+# Mangumを使用してASGIアプリケーションをAWS Lambda形式に変換
+# VercelのPython Serverless Functionsは、この形式を期待しています
+handler = Mangum(app, lifespan="off")
 
