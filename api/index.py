@@ -209,5 +209,20 @@ async def get_check_items():
 
 # Vercel用のハンドラー
 # Vercelは "handler" という名前の関数を探します
-handler = Mangum(app, lifespan="off")
+# Mangumのインスタンスを作成
+mangum_app = Mangum(app, lifespan="off")
+
+# VercelのPython Serverless Functionsは関数を期待するため、ラップ
+def handler(event, context):
+    """
+    Vercel Serverless Function用のハンドラー関数
+    
+    Args:
+        event: Vercelのイベントオブジェクト（AWS Lambda形式）
+        context: Vercelのコンテキストオブジェクト
+    
+    Returns:
+        ASGIアプリケーションのレスポンス
+    """
+    return mangum_app(event, context)
 
