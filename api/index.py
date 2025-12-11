@@ -207,6 +207,7 @@ async def get_check_items():
 
 
 # Vercel用のハンドラー
-# Vercelは "app" という名前のASGIアプリケーションを探します
-# handler はエクスポートしない（VercelがBaseHTTPRequestHandlerを期待するため）
+# Vercelは "handler" または "app" という名前を探します
+# FastAPIアプリケーションを直接エクスポート
+handler = app
 
