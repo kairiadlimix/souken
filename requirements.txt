@@ -1,0 +1,32 @@
+# 図面チェックAI システム - 依存パッケージ
+
+# PDF処理
+PyPDF2>=3.0.0
+pdfplumber>=0.9.0
+
+# OCR（将来的に使用）
+# pdf2image>=1.16.0
+# pytesseract>=0.3.10
+# easyocr>=1.7.0
+
+# Web Framework
+fastapi>=0.104.0
+uvicorn>=0.24.0
+python-multipart>=0.0.6
+
+# データベース
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.9
+
+# レポート生成
+reportlab>=4.0.0
+openpyxl>=3.1.0
+
+# 画像処理（将来的に使用）
+# opencv-python>=4.8.0
+# Pillow>=10.0.0
+
+# その他
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
