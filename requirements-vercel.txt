@@ -1,0 +1,21 @@
+# 図面チェックAI システム - Vercel用依存パッケージ
+# Vercel Serverless Functions用に最適化
+
+# PDF処理（必須）
+PyPDF2>=3.0.0
+pdfplumber>=0.9.0
+
+# Web Framework（必須）
+fastapi>=0.104.0
+python-multipart>=0.0.6
+mangum>=0.17.0
+
+# データ検証
+pydantic>=2.0.0
+
+# 注意: 以下のパッケージはVercelでは使用しない
+# - uvicorn: Vercelが自動的に処理
+# - sqlalchemy, psycopg2-binary: データベースが必要（Vercel Postgresを使用する場合のみ）
+# - reportlab, openpyxl: レポート生成（将来的に追加）
+# - opencv-python, Pillow: 画像処理（OCR機能で使用、将来的に追加）
+
