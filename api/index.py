@@ -207,9 +207,6 @@ async def get_check_items():
 
 
 # Vercel用のハンドラー
-# VercelはASGIアプリケーションを直接サポートしているため、
-# FastAPIアプリケーションを直接エクスポート
-# Vercelは "app" または "handler" という名前を探します
-# 両方エクスポートして互換性を確保
-handler = app
+# Vercelは "app" という名前のASGIアプリケーションを探します
+# handler はエクスポートしない（VercelがBaseHTTPRequestHandlerを期待するため）
 
