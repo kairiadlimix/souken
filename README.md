@@ -11,7 +11,15 @@
 
 ## セットアップ
 
-### 1. 依存パッケージのインストール
+### 1. プロジェクトディレクトリに移動
+
+```bash
+cd /Users/kairi.oshima/souken
+```
+
+**重要**: 必ずプロジェクトルート（`souken`ディレクトリ）に移動してから実行してください。
+
+### 2. 依存パッケージのインストール
 
 ```bash
 # macOS/Linuxの場合
@@ -23,12 +31,12 @@ python3 -m pip install -r requirements.txt
 pip install -r requirements.txt
 ```
 
-### 2. 基本的な使用方法
+### 3. 基本的な使用方法
 
 #### ローカルでAPIサーバーを起動
 
 ```bash
-# ローカルサーバーを起動（ポート8000）
+# プロジェクトルートから実行（ポート8000）
 python3 run_local.py
 
 # または直接uvicornを使用
