@@ -17,7 +17,6 @@ try:
     from fastapi import FastAPI, UploadFile, File, HTTPException
     from fastapi.middleware.cors import CORSMiddleware
     from fastapi.responses import JSONResponse
-    from mangum import Mangum
     import json
     from typing import Optional
 
@@ -208,21 +207,9 @@ async def get_check_items():
 
 
 # Vercel用のハンドラー
-# Vercelは "handler" という名前の関数を探します
-# Mangumのインスタンスを作成
-mangum_app = Mangum(app, lifespan="off")
-
-# VercelのPython Serverless Functionsは関数を期待するため、ラップ
-def handler(event, context):
-    """
-    Vercel Serverless Function用のハンドラー関数
-    
-    Args:
-        event: Vercelのイベントオブジェクト（AWS Lambda形式）
-        context: Vercelのコンテキストオブジェクト
-    
-    Returns:
-        ASGIアプリケーションのレスポンス
-    """
-    return mangum_app(event, context)
+# VercelはASGIアプリケーションを直接サポートしているため、
+# FastAPIアプリケーションを直接エクスポート
+# Vercelは "app" または "handler" という名前を探します
+# 両方エクスポートして互換性を確保
+handler = app
 
