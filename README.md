@@ -19,6 +19,22 @@ pip install -r requirements.txt
 
 ### 2. 基本的な使用方法
 
+#### ローカルでAPIサーバーを起動
+
+```bash
+# ローカルサーバーを起動（ポート8000）
+python run_local.py
+
+# または直接uvicornを使用
+uvicorn api.index:app --reload --host 0.0.0.0 --port 8000
+```
+
+起動後、以下のURLでアクセスできます：
+- APIルート: http://localhost:8000/
+- ヘルスチェック: http://localhost:8000/api/health
+- APIドキュメント: http://localhost:8000/docs (Swagger UI)
+- 代替APIドキュメント: http://localhost:8000/redoc (ReDoc)
+
 #### コマンドラインから実行
 
 ```bash
@@ -30,6 +46,22 @@ python -m src.main 図面ファイル.pdf --format json
 
 # 結果をファイルに保存
 python -m src.main 図面ファイル.pdf --output result.txt
+```
+
+#### APIを使用してチェック
+
+```bash
+# ヘルスチェック
+curl http://localhost:8000/api/health
+
+# 図面をアップロードしてチェック
+curl -X POST "http://localhost:8000/api/v1/check" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@図面ファイル.pdf"
+
+# チェック項目一覧を取得
+curl http://localhost:8000/api/v1/check-items
 ```
 
 #### Pythonスクリプトから使用
@@ -105,4 +137,5 @@ souken/
 ## ライセンス
 
 内部使用のみ
+
 

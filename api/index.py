@@ -17,12 +17,18 @@ try:
     from fastapi import FastAPI, UploadFile, File, HTTPException
     from fastapi.middleware.cors import CORSMiddleware
     from fastapi.responses import JSONResponse
-    from mangum import Mangum
     import json
     from typing import Optional
 
     from src.pdf_parser import PDFParser
     from src.checkers import CheckEngine, CheckStatus, Importance
+    
+    # MangumはVercelデプロイ時のみ必要（ローカル実行時は不要）
+    try:
+        from mangum import Mangum
+        MANGUM_AVAILABLE = True
+    except ImportError:
+        MANGUM_AVAILABLE = False
 except ImportError as e:
     # インポートエラーを詳細に記録
     error_msg = f"Import error: {str(e)}\n{traceback.format_exc()}"
@@ -207,8 +213,13 @@ async def get_check_items():
     }
 
 
-# Vercel用のハンドラー
+# Vercel用のハンドラー（Vercelデプロイ時のみ使用）
 # Mangumを使用してASGIアプリケーションをAWS Lambda形式に変換
 # VercelのPython Serverless Functionsは、この形式を期待しています
-handler = Mangum(app, lifespan="off")
+# ローカル実行時は不要（uvicornが直接appを使用）
+if MANGUM_AVAILABLE:
+    handler = Mangum(app, lifespan="off")
+else:
+    # ローカル実行時はhandlerを定義しない（uvicornがappを直接使用）
+    handler = None
 
