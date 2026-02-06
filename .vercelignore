@@ -1,0 +1,42 @@
+# Vercelデプロイ時に除外するファイル
+# Serverless Functionのサイズ制限（250MB）を超えないようにするため
+
+# PDFファイル（サンプルデータ）
+*.pdf
+
+# Pythonキャッシュ
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 仮想環境
+venv/
+env/
+ENV/
+.venv
+
+# ビルド成果物
+build/
+dist/
+*.egg-info/
+
+# ドキュメント（大きなファイル）
+*.md
+!README.md
+
+# CSVファイル（大きなファイル）
+*.csv
+
+# テストファイル
+test_*.py
+*_test.py
+
+# 開発用スクリプト
+実現可能性評価_質問リスト_*.py
+*_CSV生成.py
+
+# その他の大きなファイル
+創建工事長ヒアリングドキュメント.pdf
+【仮実施図】*.pdf
+【藤原台Ⅲ25号地】*.pdf
