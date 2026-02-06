@@ -5,12 +5,13 @@
 # 注意: pdfplumberは依存パッケージが大きく、Vercelのサイズ制限を超える可能性があるため除外
 PyPDF2>=3.0.0
 
-# Web Framework（必須 - 最小限のバージョン）
-fastapi==0.104.1
+# Web Framework（必須 - 軽量版）
+# FastAPI 0.68.2はpydantic v1を使用（より軽量）
+fastapi==0.68.2
 python-multipart==0.0.6
 mangum==0.17.0
 
-# データ検証（pydantic v2は大きいため、v1を使用）
+# データ検証（pydantic v1はv2より軽量）
 pydantic==1.10.13
 
 # Gemini OCR（オプション - Vercelでは制限あり）
