@@ -1,18 +1,14 @@
 # 図面チェックAI システム - Vercel用依存パッケージ
 # Vercel Serverless Functions用に最適化（サイズ制限250MB対応）
+# FastAPIを削除して最小限の構成に
 
 # PDF処理（軽量版 - PyPDF2のみ）
 # 注意: pdfplumberは依存パッケージが大きく、Vercelのサイズ制限を超える可能性があるため除外
 PyPDF2>=3.0.0
 
-# Web Framework（必須 - 軽量版）
-# FastAPI 0.68.2はpydantic v1を使用（より軽量）
-fastapi==0.68.2
-python-multipart==0.0.6
-mangum==0.17.0
-
-# データ検証（pydantic v1はv2より軽量）
-pydantic==1.10.13
+# 注意: FastAPI、mangum、pydanticを削除
+# VercelのPython Serverless Functionsは標準ライブラリのみで動作可能
+# ファイルアップロードが必要な場合は、別のプラットフォーム（Railway、Render）を推奨
 
 # Gemini OCR（オプション - Vercelでは制限あり）
 # 注意: pdf2imageとpopplerはVercelのServerless Functionsでは動作しない可能性が高い
