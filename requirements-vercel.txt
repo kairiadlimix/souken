@@ -1,9 +1,9 @@
 # 図面チェックAI システム - Vercel用依存パッケージ
-# Vercel Serverless Functions用に最適化
+# Vercel Serverless Functions用に最適化（サイズ制限250MB対応）
 
-# PDF処理（必須）
+# PDF処理（軽量版 - PyPDF2のみ）
+# 注意: pdfplumberは依存パッケージが大きく、Vercelのサイズ制限を超える可能性があるため除外
 PyPDF2>=3.0.0
-pdfplumber>=0.9.0
 
 # Web Framework（必須）
 fastapi>=0.104.0
