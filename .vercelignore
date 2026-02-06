@@ -9,17 +9,19 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.egg-info/
 
 # 仮想環境
 venv/
 env/
 ENV/
-.venv
+.venv/
 
 # ビルド成果物
 build/
 dist/
-*.egg-info/
+wheels/
+*.egg
 
 # ドキュメント（大きなファイル）
 *.md
@@ -31,12 +33,30 @@ dist/
 # テストファイル
 test_*.py
 *_test.py
+test_check.py
+test_gemini_ocr.py
 
 # 開発用スクリプト
 実現可能性評価_質問リスト_*.py
 *_CSV生成.py
 
+# Streamlitアプリ（Vercelでは使用しない）
+app.py
+run_local.py
+
+# Gemini OCR関連（Vercelでは動作しない）
+src/gemini_ocr.py
+Gemini_OCR*.md
+
 # その他の大きなファイル
 創建工事長ヒアリングドキュメント.pdf
 【仮実施図】*.pdf
 【藤原台Ⅲ25号地】*.pdf
+
+# ドキュメントディレクトリ（大きなファイルが多い）
+実装と要件のズレ・不足点分析.md
+実装優先順位_提案.md
+実現可能性評価_*.md
+社長合意用_*.md
+01-16_会議_*.md
+souken_zumen.md
