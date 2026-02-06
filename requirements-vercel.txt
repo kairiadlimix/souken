@@ -5,13 +5,13 @@
 # 注意: pdfplumberは依存パッケージが大きく、Vercelのサイズ制限を超える可能性があるため除外
 PyPDF2>=3.0.0
 
-# Web Framework（必須）
-fastapi>=0.104.0
-python-multipart>=0.0.6
-mangum>=0.17.0
+# Web Framework（必須 - 最小限のバージョン）
+fastapi==0.104.1
+python-multipart==0.0.6
+mangum==0.17.0
 
-# データ検証
-pydantic>=2.0.0
+# データ検証（pydantic v2は大きいため、v1を使用）
+pydantic==1.10.13
 
 # Gemini OCR（オプション - Vercelでは制限あり）
 # 注意: pdf2imageとpopplerはVercelのServerless Functionsでは動作しない可能性が高い

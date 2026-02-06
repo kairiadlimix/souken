@@ -48,6 +48,10 @@ run_local.py
 src/gemini_ocr.py
 Gemini_OCR*.md
 
+# srcディレクトリ内の不要なファイル
+src/main.py
+src/__pycache__/
+
 # その他の大きなファイル
 創建工事長ヒアリングドキュメント.pdf
 【仮実施図】*.pdf
