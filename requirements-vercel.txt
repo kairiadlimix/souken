@@ -13,9 +13,16 @@ mangum>=0.17.0
 # データ検証
 pydantic>=2.0.0
 
+# Gemini OCR（オプション - Vercelでは制限あり）
+# 注意: pdf2imageとpopplerはVercelのServerless Functionsでは動作しない可能性が高い
+# そのため、Gemini OCRは無効化されるか、エラーハンドリングで対応
+# google-generativeai>=0.8.0
+# pdf2image>=1.16.0
+# Pillow>=10.0.0
+
 # 注意: 以下のパッケージはVercelでは使用しない
 # - uvicorn: Vercelが自動的に処理
 # - sqlalchemy, psycopg2-binary: データベースが必要（Vercel Postgresを使用する場合のみ）
 # - reportlab, openpyxl: レポート生成（将来的に追加）
-# - opencv-python, Pillow: 画像処理（OCR機能で使用、将来的に追加）
+# - streamlit: Web UI（Vercelでは使用しない、別途Streamlit Cloudでデプロイ）
 

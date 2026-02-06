@@ -59,7 +59,10 @@ def get_parser():
     """PDFパーサーを取得（遅延初期化）"""
     global pdf_parser
     if pdf_parser is None:
-        pdf_parser = PDFParser()
+        # VercelではGemini OCRを無効化（pdf2image/popplerが動作しない可能性が高い）
+        # 環境変数で制御可能
+        use_gemini_ocr = os.getenv('USE_GEMINI_OCR', 'false').lower() == 'true'
+        pdf_parser = PDFParser(use_gemini_ocr=use_gemini_ocr)
     return pdf_parser
 
 def get_check_engine():
